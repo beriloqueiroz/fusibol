@@ -262,13 +262,15 @@ document.addEventListener('DOMContentLoaded', () => {
   saveButtons.forEach(button => {
     button.addEventListener('click', () => {
       const team = button.dataset.team === 'A' ? teamA : teamB;
+      const formation = button.dataset.team === 'A' ? formationSelectA : formationSelectB
       const playersData = Array.from(team.children).map(player => ({
         x: parseFloat(player.style.left),
         y: parseFloat(player.style.top),
         number: player.querySelector('input').value,
         name: player.getAttribute('data-name') || '',
         color: player.style.backgroundColor,
-        side: button.dataset.team
+        side: button.dataset.team,
+        formation: formation.value
       }));
       let key = button.dataset.team === 'A' ? nameTeamA?.value : nameTeamB?.value;
       if (key == null || key == '') {
@@ -292,6 +294,10 @@ document.addEventListener('DOMContentLoaded', () => {
         lastPlayer.querySelector('label').innerHTML = player.name;
         lastPlayer.setAttribute('data-name', player.name);
       });
+      const formationSelect = !isTeamB ? formationSelectA : formationSelectB;
+      const teamColorInput = !isTeamB ? teamColorInputA : teamColorInputB;
+      formationSelect.value = playersData[0].formation;
+      teamColorInput.value = rgbToHex(playersData[0].color);
       return
     }
     // Inicializar formações
@@ -367,3 +373,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function rgbToHex(rgbString) {
+  // Extrai os valores R, G e B da string RGB
+  const regex = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/;
+  const matches = rgbString.match(regex);
+
+  if (!matches) {
+    throw new Error('Formato RGB inválido');
+  }
+
+  // Converte cada valor para hexadecimal
+  const r = parseInt(matches[1]).toString(16).padStart(2, '0');
+  const g = parseInt(matches[2]).toString(16).padStart(2, '0');
+  const b = parseInt(matches[3]).toString(16).padStart(2, '0');
+
+  // Retorna o valor hexadecimal
+  return `#${r}${g}${b}`;
+}
