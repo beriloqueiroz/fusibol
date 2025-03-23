@@ -1,0 +1,199 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.field {
+  position: relative;
+  width: 800px; /* Largura do campo */
+  height: 500px; /* Altura do campo */
+  background-color: green;
+  border: 2px solid white;
+  overflow: hidden;
+  margin: 0; /* Remover margens */
+  padding: 0; /* Remover padding */
+}
+
+.field::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: white;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Círculo central */
+.field .center-circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Grandes áreas */
+.field .penalty-area {
+  position: absolute;
+  width: 40px;
+  height: 100px;
+  border: 2px solid white;
+  border-left: 0px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.field .penalty-area.right {
+  right: 0;
+  left: auto;
+  border: 2px solid white;
+  border-right: 0px;
+}
+.field .penalty-area.bigger {
+  width: 80px;
+  height: 200px;
+}
+
+.player {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  z-index:1;
+}
+
+.player input {
+  width: 20px;
+  text-align: center;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+
+.player-name {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Estilos do Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.team-list {
+  margin-top: 10px;
+}
+
+.team-list select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.checkHidden {
+  display:flex;
+}

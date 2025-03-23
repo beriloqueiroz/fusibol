@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análise Tática de Futebol</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Controles do Time A -->
+    <div class="controls" id="controlsA">
+      <h3>
+        <label for="nameTeamA">Time:</label>
+        <input type="text" id="nameTeamA" placeholder="Ceará">
+        <div id="teamListA" class="team-list"></div> <!-- Novo elemento para o select -->
+      </h3>
+      <label for="formationA">Esquema Tático:</label>
+      <select id="formationA">
+        <option value="4-4-2">4-4-2</option>
+        <option value="4-3-3">4-3-3</option>
+        <option value="3-5-2">3-5-2</option>
+      </select>
+
+      <label for="teamColorA">Cor do Time:</label>
+      <input type="color" id="teamColorA" value="#FFFFF">
+
+      <div class="checkHidden">
+        <label for="hideTeamA">Ocultar Time:</label>
+        <input type="checkbox" id="hideTeamA">
+      </div>
+
+      <button class="resetButton" data-team="A">Reset</button>
+      <button class="saveButton" data-team="A">Salvar</button>
+    </div>
+
+    <!-- Campo de Futebol -->
+    <div class="field">
+      <div class="center-circle"></div>
+      <div class="penalty-area"></div>
+      <div class="penalty-area bigger"></div>
+      <div class="penalty-area right"></div>
+      <div class="penalty-area right bigger"></div>
+      <div id="teamA" class="team"></div>
+      <div id="teamB" class="team"></div>
+    </div>
+
+    <!-- Controles do Time B -->
+    <div class="controls" id="controlsB">
+      <h3>
+        <label for="nameTeamB">Time:</label>
+        <input type="text" id="nameTeamB" placeholder="Fortaleza">
+        <div id="teamListB" class="team-list"></div> <!-- Novo elemento para o select -->
+      </h3>
+      <label for="formationB">Esquema Tático:</label>
+      <select id="formationB">
+        <option value="4-4-2">4-4-2</option>
+        <option value="4-3-3">4-3-3</option>
+        <option value="3-5-2">3-5-2</option>
+      </select>
+
+      <label for="teamColorB">Cor do Time:</label>
+      <input type="color" id="teamColorB" value="#0011DD">
+
+      <div class="checkHidden">
+        <label for="hideTeamB">Ocultar Time:</label>
+        <input type="checkbox" id="hideTeamB">
+      </div>
+
+      <button class="resetButton" data-team="B">Reset</button>
+      <button class="saveButton" data-team="B">Salvar</button>
+    </div>
+  </div>
+
+  <!-- Modal para inserir nome e número -->
+  <div id="playerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Editar Jogador</h3>
+      <label for="playerName">Nome:</label>
+      <input type="text" id="playerName" placeholder="Nome do jogador">
+      <label for="playerNumber">Número:</label>
+      <input type="text" id="playerNumber" placeholder="Número da camisa" maxlength="2">
+      <button id="savePlayerData">Salvar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
