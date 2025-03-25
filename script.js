@@ -20,35 +20,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const formations = {
     '4-4-2': [
       { x: 5, y: 50 }, // Goleiro
-      { x: 15, y: 30 }, // Zagueiro esquerdo
-      { x: 15, y: 70 }, // Zagueiro direito
-      { x: 25, y: 10 }, // Lateral esquerdo
-      { x: 25, y: 90 }, // Lateral direito
-      { x: 40, y: 40 }, // Volante esquerdo
-      { x: 40, y: 60 }, // Volante direito
-      { x: 55, y: 20 }, // Ala esquerdo
-      { x: 55, y: 80 }, // Ala direito
-      { x: 70, y: 40 }, // Centroavante esquerdo
-      { x: 70, y: 60 }  // Centroavante direito
+      { x: 10, y: 30 }, // Zagueiro esquerdo
+      { x: 10, y: 70 }, // Zagueiro direito
+      { x: 15, y: 10 }, // Lateral esquerdo
+      { x: 15, y: 90 }, // Lateral direito
+      { x: 25, y: 40 }, // Volante esquerdo
+      { x: 25, y: 60 }, // Volante direito
+      { x: 35, y: 20 }, // Ala esquerdo
+      { x: 35, y: 80 }, // Ala direito
+      { x: 45, y: 40 }, // Centroavante esquerdo
+      { x: 45, y: 60 }  // Centroavante direito
     ],
     '4-3-3': [
       { x: 5, y: 50 }, // Goleiro
-      { x: 15, y: 30 }, // Zagueiro esquerdo
-      { x: 15, y: 70 }, // Zagueiro direito
-      { x: 25, y: 10 }, // Lateral esquerdo
-      { x: 25, y: 90 }, // Lateral direito
-      { x: 40, y: 50 }, // Volante
-      { x: 55, y: 30 }, // Meia esquerdo
-      { x: 55, y: 70 }, // Meia direito
-      { x: 70, y: 50 }, // Centroavante
-      { x: 70, y: 20 }, // Ponta esquerda
-      { x: 70, y: 80 }  // Ponta direita
+      { x: 10, y: 30 }, // Zagueiro esquerdo
+      { x: 10, y: 70 }, // Zagueiro direito
+      { x: 15, y: 10 }, // Lateral esquerdo
+      { x: 15, y: 90 }, // Lateral direito
+      { x: 25, y: 50 }, // Volante
+      { x: 35, y: 30 }, // Meia esquerdo
+      { x: 35, y: 70 }, // Meia direito
+      { x: 45, y: 50 }, // Centroavante
+      { x: 45, y: 20 }, // Ponta esquerda
+      { x: 45, y: 80 }  // Ponta direita
     ],
     '3-5-2': [
       { x: 5, y: 50 }, // Goleiro
-      { x: 15, y: 30 }, // Zagueiro esquerdo
-      { x: 15, y: 50 }, // Zagueiro central
-      { x: 15, y: 70 }, // Zagueiro direito
+      { x: 10, y: 30 }, // Zagueiro esquerdo
+      { x: 10, y: 50 }, // Zagueiro central
+      { x: 10, y: 70 }, // Zagueiro direito
       { x: 30, y: 10 }, // Lateral esquerdo
       { x: 30, y: 90 }, // Lateral direito
       { x: 45, y: 30 }, // Volante esquerdo
@@ -56,6 +56,84 @@ document.addEventListener('DOMContentLoaded', () => {
       { x: 60, y: 50 }, // Meia
       { x: 75, y: 40 }, // Centroavante esquerdo
       { x: 75, y: 60 }  // Centroavante direito
+    ],
+    '5-3-2': [
+      { x: 5, y: 50 },   // Goleiro
+      { x: 10, y: 20 },  // Zagueiro esquerdo
+      { x: 10, y: 50 },  // Zagueiro central
+      { x: 10, y: 80 },  // Zagueiro direito
+      { x: 15, y: 10 },  // Lateral esquerdo
+      { x: 15, y: 90 },  // Lateral direito
+      { x: 30, y: 40 },  // Volante
+      { x: 30, y: 60 },  // Meia central
+      { x: 40, y: 50 },  // Meia ofensivo
+      { x: 45, y: 30 },  // Atacante esquerdo
+      { x: 45, y: 70 }   // Atacante direito
+    ],
+    '4-5-1': [
+      { x: 5, y: 50 },
+      { x: 10, y: 30 },
+      { x: 10, y: 70 },
+      { x: 15, y: 10 },
+      { x: 15, y: 90 },
+      { x: 25, y: 20 },
+      { x: 25, y: 80 },
+      { x: 30, y: 40 },
+      { x: 30, y: 60 },
+      { x: 35, y: 50 },
+      { x: 45, y: 50 }  // Único atacante
+    ],
+    '4-2-4': [
+      { x: 5, y: 50 },
+      { x: 10, y: 30 },
+      { x: 10, y: 70 },
+      { x: 15, y: 10 },
+      { x: 15, y: 90 },
+      { x: 25, y: 40 },
+      { x: 25, y: 60 },
+      { x: 40, y: 20 },
+      { x: 40, y: 80 },
+      { x: 40, y: 40 },
+      { x: 40, y: 60 }
+    ],
+    '3-4-3': [
+      { x: 5, y: 50 },
+      { x: 10, y: 30 },
+      { x: 10, y: 50 },
+      { x: 10, y: 70 },
+      { x: 25, y: 20 },
+      { x: 25, y: 80 },
+      { x: 30, y: 40 },
+      { x: 30, y: 60 },
+      { x: 45, y: 20 },
+      { x: 45, y: 80 },
+      { x: 45, y: 50 }
+    ],
+    '4-2-3-1': [
+      { x: 5, y: 50 },
+      { x: 10, y: 30 },
+      { x: 10, y: 70 },
+      { x: 15, y: 10 },
+      { x: 15, y: 90 },
+      { x: 25, y: 40 },
+      { x: 25, y: 60 },
+      { x: 35, y: 50 },  // CAM
+      { x: 40, y: 30 },  // Ponta esquerda
+      { x: 40, y: 70 },  // Ponta direita
+      { x: 45, y: 50 }   // Centroavante
+    ],
+    '4-1-4-1': [
+      { x: 5, y: 50 },
+      { x: 10, y: 30 },
+      { x: 10, y: 70 },
+      { x: 15, y: 10 },
+      { x: 15, y: 90 },
+      { x: 25, y: 50 },  // Volante
+      { x: 35, y: 20 },
+      { x: 35, y: 80 },
+      { x: 35, y: 40 },
+      { x: 35, y: 60 },
+      { x: 45, y: 50 }
     ]
   };
 
