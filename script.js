@@ -46,22 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     '3-5-2': [
       { x: 5, y: 50 }, // Goleiro
-      { x: 10, y: 30 }, // Zagueiro esquerdo
-      { x: 10, y: 50 }, // Zagueiro central
-      { x: 10, y: 70 }, // Zagueiro direito
+      { x: 12, y: 30 }, // Zagueiro esquerdo
+      { x: 12, y: 50 }, // Zagueiro central
+      { x: 12, y: 70 }, // Zagueiro direito
       { x: 30, y: 10 }, // Lateral esquerdo
       { x: 30, y: 90 }, // Lateral direito
-      { x: 45, y: 30 }, // Volante esquerdo
-      { x: 45, y: 70 }, // Volante direito
-      { x: 60, y: 50 }, // Meia
-      { x: 75, y: 40 }, // Centroavante esquerdo
-      { x: 75, y: 60 }  // Centroavante direito
+      { x: 25, y: 35 }, // Volante esquerdo
+      { x: 25, y: 65 }, // Volante direito
+      { x: 35, y: 50 }, // Meia
+      { x: 45, y: 40 }, // Centroavante esquerdo
+      { x: 45, y: 60 }  // Centroavante direito
     ],
     '5-3-2': [
       { x: 5, y: 50 },   // Goleiro
-      { x: 10, y: 20 },  // Zagueiro esquerdo
-      { x: 10, y: 50 },  // Zagueiro central
-      { x: 10, y: 80 },  // Zagueiro direito
+      { x: 12, y: 30 },  // Zagueiro esquerdo
+      { x: 12, y: 50 },  // Zagueiro central
+      { x: 12, y: 70 },  // Zagueiro direito
       { x: 15, y: 10 },  // Lateral esquerdo
       { x: 15, y: 90 },  // Lateral direito
       { x: 30, y: 40 },  // Volante
@@ -98,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     '3-4-3': [
       { x: 5, y: 50 },
-      { x: 10, y: 30 },
-      { x: 10, y: 50 },
-      { x: 10, y: 70 },
+      { x: 12, y: 30 },
+      { x: 12, y: 50 },
+      { x: 12, y: 70 },
       { x: 25, y: 20 },
       { x: 25, y: 80 },
       { x: 30, y: 40 },
