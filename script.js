@@ -19,121 +19,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const formations = {
     '4-4-2': [
-      { x: 5, y: 50 }, // Goleiro
-      { x: 10, y: 30 }, // Zagueiro esquerdo
-      { x: 10, y: 70 }, // Zagueiro direito
-      { x: 15, y: 10 }, // Lateral esquerdo
-      { x: 15, y: 90 }, // Lateral direito
-      { x: 25, y: 40 }, // Volante esquerdo
-      { x: 25, y: 60 }, // Volante direito
-      { x: 35, y: 20 }, // Ala esquerdo
-      { x: 35, y: 80 }, // Ala direito
-      { x: 45, y: 40 }, // Centroavante esquerdo
-      { x: 45, y: 60 }  // Centroavante direito
+      { player: undefined, id: 1, x: 5, y: 50 }, // Goleiro
+      { player: undefined, id: 2, x: 10, y: 30 }, // Zagueiro esquerdo
+      { player: undefined, id: 3, x: 10, y: 70 }, // Zagueiro direito
+      { player: undefined, id: 4, x: 15, y: 10 }, // Lateral esquerdo
+      { player: undefined, id: 5, x: 15, y: 90 }, // Lateral direito
+      { player: undefined, id: 6, x: 25, y: 40 }, // Volante esquerdo
+      { player: undefined, id: 7, x: 25, y: 60 }, // Volante direito
+      { player: undefined, id: 8, x: 35, y: 20 }, // Ala esquerdo
+      { player: undefined, id: 9, x: 35, y: 80 }, // Ala direito
+      { player: undefined, id: 10, x: 45, y: 40 }, // Centroavante esquerdo
+      { player: undefined, id: 11, x: 45, y: 60 }  // Centroavante direito
     ],
     '4-3-3': [
-      { x: 5, y: 50 }, // Goleiro
-      { x: 10, y: 30 }, // Zagueiro esquerdo
-      { x: 10, y: 70 }, // Zagueiro direito
-      { x: 15, y: 10 }, // Lateral esquerdo
-      { x: 15, y: 90 }, // Lateral direito
-      { x: 25, y: 50 }, // Volante
-      { x: 35, y: 30 }, // Meia esquerdo
-      { x: 35, y: 70 }, // Meia direito
-      { x: 45, y: 50 }, // Centroavante
-      { x: 45, y: 20 }, // Ponta esquerda
-      { x: 45, y: 80 }  // Ponta direita
+      { player: undefined, id: 1, x: 5, y: 50 }, // Goleiro
+      { player: undefined, id: 2, x: 10, y: 30 }, // Zagueiro esquerdo
+      { player: undefined, id: 3, x: 10, y: 70 }, // Zagueiro direito
+      { player: undefined, id: 4, x: 15, y: 10 }, // Lateral esquerdo
+      { player: undefined, id: 5, x: 15, y: 90 }, // Lateral direito
+      { player: undefined, id: 6, x: 25, y: 50 }, // Volante
+      { player: undefined, id: 7, x: 35, y: 30 }, // Meia esquerdo
+      { player: undefined, id: 8, x: 35, y: 70 }, // Meia direito
+      { player: undefined, id: 9, x: 45, y: 50 }, // Centroavante
+      { player: undefined, id: 10, x: 45, y: 20 }, // Ponta esquerda
+      { player: undefined, id: 11, x: 45, y: 80 }  // Ponta direita
     ],
     '3-5-2': [
-      { x: 5, y: 50 }, // Goleiro
-      { x: 12, y: 30 }, // Zagueiro esquerdo
-      { x: 12, y: 50 }, // Zagueiro central
-      { x: 12, y: 70 }, // Zagueiro direito
-      { x: 30, y: 10 }, // Lateral esquerdo
-      { x: 30, y: 90 }, // Lateral direito
-      { x: 25, y: 35 }, // Volante esquerdo
-      { x: 25, y: 65 }, // Volante direito
-      { x: 35, y: 50 }, // Meia
-      { x: 45, y: 40 }, // Centroavante esquerdo
-      { x: 45, y: 60 }  // Centroavante direito
+      { player: undefined, id: 1, x: 5, y: 50 }, // Goleiro
+      { player: undefined, id: 2, x: 12, y: 30 }, // Zagueiro esquerdo
+      { player: undefined, id: 3, x: 12, y: 50 }, // Zagueiro central
+      { player: undefined, id: 4, x: 12, y: 70 }, // Zagueiro direito
+      { player: undefined, id: 5, x: 30, y: 10 }, // Lateral esquerdo
+      { player: undefined, id: 6, x: 30, y: 90 }, // Lateral direito
+      { player: undefined, id: 7, x: 25, y: 35 }, // Volante esquerdo
+      { player: undefined, id: 8, x: 25, y: 65 }, // Volante direito
+      { player: undefined, id: 9, x: 35, y: 50 }, // Meia
+      { player: undefined, id: 10, x: 45, y: 40 }, // Centroavante esquerdo
+      { player: undefined, id: 11, x: 45, y: 60 }  // Centroavante direito
     ],
     '5-3-2': [
-      { x: 5, y: 50 },   // Goleiro
-      { x: 12, y: 30 },  // Zagueiro esquerdo
-      { x: 12, y: 50 },  // Zagueiro central
-      { x: 12, y: 70 },  // Zagueiro direito
-      { x: 15, y: 10 },  // Lateral esquerdo
-      { x: 15, y: 90 },  // Lateral direito
-      { x: 30, y: 40 },  // Volante
-      { x: 30, y: 60 },  // Meia central
-      { x: 40, y: 50 },  // Meia ofensivo
-      { x: 45, y: 30 },  // Atacante esquerdo
-      { x: 45, y: 70 }   // Atacante direito
+      { player: undefined, id: 1, x: 5, y: 50 },   // Goleiro
+      { player: undefined, id: 2, x: 12, y: 30 },  // Zagueiro esquerdo
+      { player: undefined, id: 3, x: 12, y: 50 },  // Zagueiro central
+      { player: undefined, id: 4, x: 12, y: 70 },  // Zagueiro direito
+      { player: undefined, id: 5, x: 15, y: 10 },  // Lateral esquerdo
+      { player: undefined, id: 6, x: 15, y: 90 },  // Lateral direito
+      { player: undefined, id: 7, x: 30, y: 40 },  // Volante
+      { player: undefined, id: 8, x: 30, y: 60 },  // Meia central
+      { player: undefined, id: 9, x: 40, y: 50 },  // Meia ofensivo
+      { player: undefined, id: 10, x: 45, y: 30 },  // Atacante esquerdo
+      { player: undefined, id: 11, x: 45, y: 70 }   // Atacante direito
     ],
     '4-5-1': [
-      { x: 5, y: 50 },
-      { x: 10, y: 30 },
-      { x: 10, y: 70 },
-      { x: 15, y: 10 },
-      { x: 15, y: 90 },
-      { x: 25, y: 20 },
-      { x: 25, y: 80 },
-      { x: 30, y: 40 },
-      { x: 30, y: 60 },
-      { x: 35, y: 50 },
-      { x: 45, y: 50 }  // Único atacante
+      { player: undefined, id: 1, x: 5, y: 50 },
+      { player: undefined, id: 2, x: 10, y: 30 },
+      { player: undefined, id: 3, x: 10, y: 70 },
+      { player: undefined, id: 4, x: 15, y: 10 },
+      { player: undefined, id: 5, x: 15, y: 90 },
+      { player: undefined, id: 6, x: 25, y: 20 },
+      { player: undefined, id: 7, x: 25, y: 80 },
+      { player: undefined, id: 8, x: 30, y: 40 },
+      { player: undefined, id: 9, x: 30, y: 60 },
+      { player: undefined, id: 10, x: 35, y: 50 },
+      { player: undefined, id: 11, x: 45, y: 50 }  // Único atacante
     ],
     '4-2-4': [
-      { x: 5, y: 50 },
-      { x: 10, y: 30 },
-      { x: 10, y: 70 },
-      { x: 15, y: 10 },
-      { x: 15, y: 90 },
-      { x: 25, y: 40 },
-      { x: 25, y: 60 },
-      { x: 40, y: 20 },
-      { x: 40, y: 80 },
-      { x: 40, y: 40 },
-      { x: 40, y: 60 }
+      { player: undefined, id: 1, x: 5, y: 50 },
+      { player: undefined, id: 2, x: 10, y: 30 },
+      { player: undefined, id: 3, x: 10, y: 70 },
+      { player: undefined, id: 4, x: 15, y: 10 },
+      { player: undefined, id: 5, x: 15, y: 90 },
+      { player: undefined, id: 6, x: 25, y: 40 },
+      { player: undefined, id: 7, x: 25, y: 60 },
+      { player: undefined, id: 8, x: 40, y: 20 },
+      { player: undefined, id: 9, x: 40, y: 80 },
+      { player: undefined, id: 10, x: 40, y: 40 },
+      { player: undefined, id: 11, x: 40, y: 60 }
     ],
     '3-4-3': [
-      { x: 5, y: 50 },
-      { x: 12, y: 30 },
-      { x: 12, y: 50 },
-      { x: 12, y: 70 },
-      { x: 25, y: 20 },
-      { x: 25, y: 80 },
-      { x: 30, y: 40 },
-      { x: 30, y: 60 },
-      { x: 45, y: 20 },
-      { x: 45, y: 80 },
-      { x: 45, y: 50 }
+      { player: undefined, id: 1, x: 5, y: 50 },
+      { player: undefined, id: 2, x: 12, y: 30 },
+      { player: undefined, id: 3, x: 12, y: 50 },
+      { player: undefined, id: 4, x: 12, y: 70 },
+      { player: undefined, id: 5, x: 25, y: 20 },
+      { player: undefined, id: 6, x: 25, y: 80 },
+      { player: undefined, id: 7, x: 30, y: 40 },
+      { player: undefined, id: 8, x: 30, y: 60 },
+      { player: undefined, id: 9, x: 45, y: 20 },
+      { player: undefined, id: 10, x: 45, y: 80 },
+      { player: undefined, id: 11, x: 45, y: 50 }
     ],
     '4-2-3-1': [
-      { x: 5, y: 50 },
-      { x: 10, y: 30 },
-      { x: 10, y: 70 },
-      { x: 15, y: 10 },
-      { x: 15, y: 90 },
-      { x: 25, y: 40 },
-      { x: 25, y: 60 },
-      { x: 35, y: 50 },  // CAM
-      { x: 40, y: 30 },  // Ponta esquerda
-      { x: 40, y: 70 },  // Ponta direita
-      { x: 45, y: 50 }   // Centroavante
+      { player: undefined, id: 1, x: 5, y: 50 },
+      { player: undefined, id: 2, x: 10, y: 30 },
+      { player: undefined, id: 3, x: 10, y: 70 },
+      { player: undefined, id: 4, x: 15, y: 10 },
+      { player: undefined, id: 5, x: 15, y: 90 },
+      { player: undefined, id: 6, x: 25, y: 40 },
+      { player: undefined, id: 7, x: 25, y: 60 },
+      { player: undefined, id: 8, x: 35, y: 50 },  // CAM
+      { player: undefined, id: 9, x: 40, y: 30 },  // Ponta esquerda
+      { player: undefined, id: 10, x: 40, y: 70 },  // Ponta direita
+      { player: undefined, id: 11, x: 45, y: 50 }   // Centroavante
     ],
     '4-1-4-1': [
-      { x: 5, y: 50 },
-      { x: 10, y: 30 },
-      { x: 10, y: 70 },
-      { x: 15, y: 10 },
-      { x: 15, y: 90 },
-      { x: 25, y: 50 },  // Volante
-      { x: 35, y: 20 },
-      { x: 35, y: 80 },
-      { x: 35, y: 40 },
-      { x: 35, y: 60 },
-      { x: 45, y: 50 }
+      { player: undefined, id: 1, x: 5, y: 50 },
+      { player: undefined, id: 2, x: 10, y: 30 },
+      { player: undefined, id: 3, x: 10, y: 70 },
+      { player: undefined, id: 4, x: 15, y: 10 },
+      { player: undefined, id: 5, x: 15, y: 90 },
+      { player: undefined, id: 6, x: 25, y: 50 },  // Volante
+      { player: undefined, id: 7, x: 35, y: 20 },
+      { player: undefined, id: 8, x: 35, y: 80 },
+      { player: undefined, id: 9, x: 35, y: 40 },
+      { player: undefined, id: 10, x: 35, y: 60 },
+      { player: undefined, id: 11, x: 45, y: 50 }
     ]
   };
 
@@ -176,15 +176,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectedPlayer) {
       const name = playerNameInput.value;
       const number = playerNumberInput.value;
-
+      const id = selectedPlayer.id;
       // Atualiza o nome e o número do jogador
       selectedPlayer.setAttribute('data-name', name);
       selectedPlayer.querySelector('input').value = number;
       selectedPlayer.querySelector('label').innerHTML = name;
+      let playersStr = localStorage.getItem("temp-player");
 
-      // Exibe o nome acima do jogador
-      // const nameDisplay = selectedPlayer.querySelector('.player-name') || document.createElement('div');
-      // nameDisplay.textContent = name;
+      if (playersStr == '' || playersStr == null) {
+        playersStr = '[]';
+      }
+
+      let players = JSON.parse(playersStr);
+      players = players.filter(p => p.id != selectedPlayer.id);
+      players.push({
+        id,
+        name,
+        number
+      })
+
+      localStorage.setItem("temp-player", JSON.stringify(players));
 
       closeModal();
     }
@@ -201,9 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Modifique a função createPlayer para abrir o modal ao clicar no jogador
-  function createPlayer(x, y, team, color) {
+  function createPlayer(id, x, y, team, color, name, number) {
     const player = document.createElement('div');
     player.className = 'player';
+    player.id = team.id + "-" + id;
     player.style.left = `${x}%`;
     player.style.top = `${y}%`;
     player.style.backgroundColor = color;
@@ -212,11 +224,14 @@ document.addEventListener('DOMContentLoaded', () => {
     numberInput.type = 'text';
     numberInput.maxLength = 2;
     numberInput.placeholder = '';
+    numberInput.value = number || '';
     player.appendChild(numberInput);
 
     const nameInput = document.createElement('label');
     nameInput.type = 'text';
     nameInput.maxLength = 50;
+    nameInput.innerHTML = name || '';
+
     nameInput.classList.add("player-name")
     player.appendChild(nameInput);
 
@@ -279,7 +294,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isTeamB) {
       positions = mirrorPositions(positions); // Espelha as posições para o Time B
     }
-    positions.forEach(pos => createPlayer(pos.x - positionAdjustment, pos.y - positionAdjustment, team, color));
+    let storagePlayers = localStorage.getItem('temp-player');
+    if (storagePlayers == null || storagePlayers == '') {
+      storagePlayers = '[]'
+    }
+    const tempPlayers = JSON.parse(storagePlayers);
+    positions.forEach(pos => {
+
+      const player = tempPlayers.find(t => t.id == `${team.id}-${pos.id}`)
+      createPlayer(pos.id, pos.x - positionAdjustment, pos.y - positionAdjustment, team, color, player?.name, player?.number)
+    });
   }
 
   // Event listeners para o Time A
@@ -332,6 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
         key = key.toLowerCase()
       }
       localStorage.removeItem(`${key}`);
+      localStorage.removeItem(`temp-player`)
       loadFormation(formationSelect.value, team, teamColorInput.value, button.dataset.team === 'B');
     });
   });
@@ -366,11 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedData) {
       const playersData = JSON.parse(savedData);
       playersData.forEach(player => {
-        createPlayer(player.x, player.y, team, player.color);
-        const lastPlayer = team.lastChild;
-        lastPlayer.querySelector('input').value = player.number;
-        lastPlayer.querySelector('label').innerHTML = player.name;
-        lastPlayer.setAttribute('data-name', player.name);
+        createPlayer(player.id, player.x, player.y, team, player.color, player.name, player.number);
       });
       const formationSelect = !isTeamB ? formationSelectA : formationSelectB;
       const teamColorInput = !isTeamB ? teamColorInputA : teamColorInputB;
