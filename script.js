@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const numberInput = document.createElement('input');
     numberInput.type = 'text';
     numberInput.maxLength = 2;
-    numberInput.placeholder = '#';
+    numberInput.placeholder = '';
     player.appendChild(numberInput);
 
     const nameInput = document.createElement('label');
