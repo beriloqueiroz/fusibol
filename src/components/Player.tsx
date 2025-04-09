@@ -104,16 +104,14 @@ export default function Player({player}:IPlayerProps) {
   return (
     <div className='absolute' ref={draggableRef}  style={{left: `${position.x}px`, top: `${position.y}px`}} onMouseDown={handleMouseDown}>    
       <span className="text-sm text-center">{player.name}</span>
-
       <div className={`
-        w-10 h-10 rounded-full bg-red-500
+        w-10 h-10 rounded-full
         flex items-center justify-center text-white
         text-xs cursor-pointer select-none z-1 m-auto
         ${isDragging ? 'cursor-grabbing shadow-lg' : 'cursor-grab'}
-      `}>
+      `} style={{ backgroundColor: `${player.color}`}}>
         <span className="text-sm">{player.number}</span>
       </div>
-
       {isModalOpen && (
         <ModalPlayer player={player} close={()=>setIsModalOpen(false)} edit={editPlayer}/>
         )}

@@ -31,7 +31,7 @@ export default function Field() {
   }
 
   return (
-    <div className='w-full bg-green-800'>
+    <div className='w-full bg-green-800 h-230 flex'>
     <div style={{width:sizes.field.c*factor, height: sizes.field.l*factor}} className={`relative m-auto bg-green-700 border-4 border-white`}>
       {/* Linhas do campo */}
       <div style={{width:sizes.area.c*factor, height:sizes.area.l*factor}} className={`absolute border-2 border-white border-l-0 border-solid left-0 top-1/2 transform -translate-y-1/2`}></div>
@@ -48,9 +48,8 @@ export default function Field() {
      
       {teamA.players.map((player) => (
         <Player
-          key={`${teamB.id}-${player.id}`}
+          key={`${teamA.id}-${player.id}`}
           player={player}
-
         />
       ))}
       {teamB.players.map((player) => (

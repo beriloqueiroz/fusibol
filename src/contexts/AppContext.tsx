@@ -1,4 +1,5 @@
 'use client'
+import { getFormations } from "@/formations";
 import { ITeam } from "@/types";
 import { createContext, useContext, useState } from "react";
 
@@ -9,8 +10,32 @@ type AppContextType = {
   setTeamB: (team:ITeam) => void
 }
 
-const initialTeamA: ITeam = { formation:'4-4-2', id: 'A', name:'Ceará', players:[{id:1, name:'berilo', number:'10', x:50, y:70, color:'#44444', team:'A', isBench:false}]};
-const initialTeamB: ITeam = { formation:'4-4-2', id: 'B', name:'Fortaleza', players:[{id:2, name:'carlos', number:'11', x:40, y:60, color:'#44444', team:'B', isBench:false}]};
+const initialTeamA: ITeam = { 
+  formation:'4-4-2', 
+  id: 'A', 
+  name:'Ceará', 
+  players: getFormations()['4-4-2'].map(f=>({
+    color:"#444444",
+    id: f.id,
+    isBench:f.isBench,
+    name:'',
+    number:'',
+    team:'A',
+    x:f.x*10-40,
+    y:f.y*6}))
+};
+const initialTeamB: ITeam = { formation:'4-4-2', id: 'B', name:'Fortaleza',
+  players: getFormations(true)['4-4-2'].map(f=>({
+    color:"#FF0000",
+    id: f.id,
+    isBench:f.isBench,
+    name:'',
+    number:'',
+    team:'B',
+    x:f.x,
+    y:f.y}))
+
+};
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
 

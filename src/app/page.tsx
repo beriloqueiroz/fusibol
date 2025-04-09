@@ -6,6 +6,8 @@ export default function TacticalBoard() {
     return (
     <main className="min-h-screen bg-black p-16">
       <div className=" mx-auto">
+        <div>
+        </div>
         <div className="">
           <Field
           />
