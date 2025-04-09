@@ -3,6 +3,7 @@ import { useAppContext } from '@/contexts/AppContext';
 import { IPlayer } from '@/types';
 import { useEffect, useRef, useState } from 'react';
 import { ModalPlayer } from './ModalPlayer';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface IPlayerProps {
   player: IPlayer;
@@ -15,8 +16,11 @@ export default function Player({player}:IPlayerProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const draggableRef = useRef<HTMLDivElement>(null);
-  const playerSizeX = 140;
-  const playerSizeY = 16;
+  const rect = draggableRef.current?.parentElement?.getBoundingClientRect();
+
+  const { scrollX, scrollY } = useWindowSize();
+  const playerSizeX = rect?.left ?? 0 + scrollX;
+  const playerSizeY = rect?.top ?? 0 + scrollY;
   const [timeClick, setTimeClick] = useState(Date.now());
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -76,7 +80,7 @@ export default function Player({player}:IPlayerProps) {
     const handleMouseUp = () => {
       setIsDragging(false);
 
-      if (Date.now()-timeClick <= 70) {
+      if (Date.now()-timeClick <= 90) {
         setIsModalOpen(true)
       }
     };
@@ -94,6 +98,7 @@ export default function Player({player}:IPlayerProps) {
         window.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('mouseup', handleMouseUp);
       };
+
     }, [isDragging, offset]); 
   
   return (
