@@ -7,9 +7,22 @@ import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface IPlayerProps {
   player: IPlayer;
+  fieldLimits: IFieldLimits
 }
 
-export default function Player({player}:IPlayerProps) {
+interface IFieldLimits {
+  min: {
+    c: number,
+    l: number
+  },
+  max: {
+    c: number,
+    l: number
+  },
+}
+
+export default function Player({player, fieldLimits}:IPlayerProps) {
+  console.log("🚀 ~ Player ~ fieldLimits:", fieldLimits)
   const {teamA, teamB, setTeamA, setTeamB} = useAppContext();
   const [position, setPosition] = useState<{ x: number; y: number }>({x:player.x, y:player.y});
   const [isDragging, setIsDragging] = useState(false);
@@ -34,17 +47,20 @@ export default function Player({player}:IPlayerProps) {
       setIsDragging(true);
     };
   
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging) return;
-  
-      const x = e.clientX - offset.x;
-      const y = e.clientY - offset.y;
-      setPosition({
-        x,y
-      });
-      savePlayer(player.team, player.name, player.number, x, y)
-      
-    };
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging) return;
+
+    let x = e.clientX - offset.x;
+    let y = e.clientY - offset.y;
+    // Limita a posição do jogador dentro do campo
+    x = Math.max(fieldLimits.min.c, Math.min(x, fieldLimits.max.c)); // Limita entre 0% e 100%
+    y = Math.max(fieldLimits.min.l, Math.min(y, fieldLimits.max.l)); // Limita entre 0% e 100%
+    setPosition({
+      x,y
+    });
+    savePlayer(player.team, player.name, player.number, x, y)
+    
+  };
 
     function savePlayer(team:string, name:string, number:string, x:number, y:number) {
       if (team == 'A') {

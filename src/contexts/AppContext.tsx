@@ -13,7 +13,7 @@ type AppContextType = {
 const initialTeamA: ITeam = { 
   formation:'4-4-2', 
   id: 'A', 
-  name:'Ceará', 
+  name:'temp-a', 
   players: getFormations()['4-4-2'].map(f=>({
     color:"#444444",
     id: f.id,
@@ -24,7 +24,7 @@ const initialTeamA: ITeam = {
     x:f.x*10-40,
     y:f.y*6}))
 };
-const initialTeamB: ITeam = { formation:'4-4-2', id: 'B', name:'Fortaleza',
+const initialTeamB: ITeam = { formation:'4-4-2', id: 'B', name:'temp-b',
   players: getFormations(true)['4-4-2'].map(f=>({
     color:"#FF0000",
     id: f.id,
