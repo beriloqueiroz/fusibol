@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Team } from './Team';
+import Player from './Player';
+import { ITeam } from '@/types';
 
-export default function Field() {
+export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
   const ref = useRef<HTMLDivElement>(null)
 
   const bigField = {
@@ -80,8 +81,23 @@ export default function Field() {
         <div style={{width:sizes.littleArea.c*factor, height: sizes.littleArea.l*factor}} className="absolute border-2 border-white border-r-0 border-solid right-0 top-1/2 transform -translate-y-1/2"></div>
         <div style={{width:sizes.dot.c*factor, height: sizes.dot.l*factor, right:sizes.dot.dis*factor}} className="absolute bg-amber-50 border-2 border-white rounded-full top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
       
-        <Team id='A' sizeLimit={sizeLimit}/>
-        <Team id='B' sizeLimit={sizeLimit}/>
+        {teamA.players.map((player) => (
+              <Player
+                key={`${teamA.id}-${player.id}`}
+                player={player}
+                team={teamA}
+                fieldLimits={sizeLimit}
+              />
+        ))}
+
+        {teamB.players.map((player) => (
+              <Player
+                key={`${teamB.id}-${player.id}`}
+                player={player}
+                team={teamB}
+                fieldLimits={sizeLimit}
+              />
+        ))}
       </div>
     </div>
   );

@@ -6,9 +6,7 @@ import { createContext, useContext, useState } from "react";
 type AppContextType = {
   teamA: ITeam
   teamB: ITeam
-  setTeamA: (team:ITeam) => void
-  setTeamB: (team:ITeam) => void
-  savePlayer: (team:string, player:IPlayer) =>void
+  savePlayer: (player:IPlayer) =>void
   saveTeam: (team:ITeam) => void
   deleteTeam: (team:ITeam) => void
 }
@@ -25,8 +23,8 @@ const initialTeamA: ITeam = {
     name:'',
     number:'',
     team:'A',
-    x:f.x*10-40,
-    y:f.y*6}))
+    x:f.x,
+    y:f.y}))
 };
 const initialTeamB: ITeam = { formation:'4-4-2', id: 'B', name:'B', color:"#FF0000",
   players: getFormations(true)['4-4-2'].map(f=>({
@@ -40,6 +38,11 @@ const initialTeamB: ITeam = { formation:'4-4-2', id: 'B', name:'B', color:"#FF00
     y:f.y}))
 
 };
+
+function positionConversion(p:IPlayer):IPlayer {
+  if (!p.isBench) return {...p,x:p.x*20-100, y:p.y*6}
+  return {...p,x:p.x*10, y:p.y*6}
+} 
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
@@ -65,8 +68,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     return JSON.parse(localStorage.getItem(name) ?? JSON.stringify(id=='A'?initialTeamA:initialTeamB))  as ITeam
   }  
 
-  function savePlayer(team:string, player:IPlayer) {
-    if (team == 'A') {
+  function savePlayer(player:IPlayer) {
+    if (player.team == 'A') {
       teamA.players = teamA.players.map(p=>{
         if (p.id===player.id) {
           p.x= player.x
@@ -78,7 +81,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       })
       saveTeam(teamA);
     }
-    if (team == 'B') {
+    if (player.team == 'B') {
       teamB.players = teamB.players.map(p=>{
         if (p.id===player.id) {
           p.x= player.x
@@ -93,7 +96,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <AppContext.Provider value={{ teamA, teamB, setTeamA: saveTeam, setTeamB:saveTeam, savePlayer, saveTeam, deleteTeam }}>
+    <AppContext.Provider value={{ teamA, teamB, saveTeam, savePlayer, deleteTeam }}>
       {children}
     </AppContext.Provider>
   )

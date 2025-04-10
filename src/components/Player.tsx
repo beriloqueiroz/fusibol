@@ -1,14 +1,24 @@
 'use client';
 import { useAppContext } from '@/contexts/AppContext';
-import { IPlayer } from '@/types';
+import { IPlayer, ITeam } from '@/types';
 import { useEffect, useRef, useState } from 'react';
 import { ModalPlayer } from './ModalPlayer';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface IPlayerProps {
   player: IPlayer;
+  team: ITeam
   fieldLimits: IFieldLimits
 }
+
+function positionConversion(p:IPlayer):{x:number, y:number}{
+  if (p.team=='B') {
+    if (!p.isBench) return {...p,x:1053-p.x*10, y:p.y*6}
+    return {x:1053-p.x*10, y:p.y*6}
+  }
+  if (!p.isBench) return {...p,x:p.x*10-50, y:p.y*6}
+  return {x:p.x*10-50, y:p.y*6}
+} 
 
 export interface IFieldLimits {
   min: {
@@ -21,9 +31,9 @@ export interface IFieldLimits {
   },
 }
 
-export default function Player({player, fieldLimits}:IPlayerProps) {
+export default function Player({player, team, fieldLimits}:IPlayerProps) {
   const {savePlayer} = useAppContext();
-  const [position, setPosition] = useState<{ x: number; y: number }>({x:player.x, y:player.y});
+  const [position, setPosition] = useState<{ x: number; y: number }>(positionConversion(player));
   const [isDragging, setIsDragging] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -56,52 +66,52 @@ export default function Player({player, fieldLimits}:IPlayerProps) {
     y = Math.max(fieldLimits.min.l, Math.min(y, fieldLimits.max.l)); // Limita entre 0% e 100%
     setPosition({
       x,y
-    });
-   
+    });  
     
   };
 
-    function editPlayer({name,number}:{name:string, number:string}) {
-      player.name=name;
-      player.number=number;
-      savePlayer(player.team, player)
+  function editPlayer({name,number}:{name:string, number:string}) {
+    player.name=name;
+    player.number=number;
+    savePlayer(player)
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+
+    if (Date.now()-timeClick <= 90) {
+      setIsModalOpen(true)
+      return;
     }
-  
-    const handleMouseUp = (e: React.MouseEvent) => {
-      setIsDragging(false);
 
-      if (Date.now()-timeClick <= 90) {
-        setIsModalOpen(true)
-        return;
-      }
+    player.x = position.x;
+    player.y = position.y;
+    savePlayer(player)
+  };
 
-      let x = e.clientX - offset.x;
-      let y = e.clientY - offset.y;
-      // Limita a posição do jogador dentro do campo
-      x = Math.max(fieldLimits.min.c, Math.min(x, fieldLimits.max.c)); // Limita entre 0% e 100%
-      y = Math.max(fieldLimits.min.l, Math.min(y, fieldLimits.max.l)); // Limita entre 0% e 100%
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+    } else {
+      window.removeEventListener('mousemove', handleMouseMove);
+    }
 
-      player.x = x;
-      player.y = y;
-      savePlayer(player.team, player)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
     };
-  
-    useEffect(() => {
-      if (isDragging) {
-        window.addEventListener('mousemove', handleMouseMove);
-      } else {
-        window.removeEventListener('mousemove', handleMouseMove);
-      }
-  
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-      };
 
-    }, [isDragging, offset]); 
-  
+  }, [isDragging, offset]); 
+
+  useEffect(()=>{
+    setPosition(positionConversion(player))
+  },[team])
+
+
   return (
     <>
-      <button className='absolute' ref={draggableRef} type='button' style={{left: `${position.x}px`, top: `${position.y}px`}} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>    
+      <button className='absolute' ref={draggableRef} type='button' 
+      style={{left: `${position.x}px`, top: `${position.y}px`}} 
+      onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>    
         <span className="text-sm text-center">{player.name}</span>
         <div className={`
           w-10 h-10 rounded-full
@@ -111,8 +121,8 @@ export default function Player({player, fieldLimits}:IPlayerProps) {
         `} style={{ backgroundColor: `${player.color}`}}>
           <span className="text-sm">{player.number}</span>
         </div>
-        
       </button>
+      
       {isModalOpen && (
         <ModalPlayer player={player} close={()=>setIsModalOpen(false)} edit={editPlayer}/>
         )}

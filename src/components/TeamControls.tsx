@@ -1,11 +1,8 @@
 'use client';
 import { useAppContext } from '@/contexts/AppContext';
-import { getFormations } from '@/formations';
+import { defaultFormation, getFormations } from '@/formations';
 import { ITeam, TFormationKey } from '@/types';
 
-interface ITeamControlsProps {
-  team: ITeam;
-}
 
 const formations: { value: TFormationKey; label: string }[] = [
   { value: '4-4-2', label: '4-4-2 (Clássico)' },
@@ -19,7 +16,7 @@ const formations: { value: TFormationKey; label: string }[] = [
   { value: "4-1-4-1", label: '4-1-4-1 (Controle do meio)'},
 ];
 
-export default function TeamControls({ team }: ITeamControlsProps) {
+export default function TeamControls({team}:{team:ITeam}) {
 
   const {saveTeam, deleteTeam} = useAppContext();  
 
@@ -32,12 +29,24 @@ export default function TeamControls({ team }: ITeamControlsProps) {
         p.x=position.x
         p.y=position.y
       }
+      p.color=team.color
       return p;
     })
     saveTeam(team)
   }
   
   function onReset() {
+    const positions = defaultFormation;
+    team.players = team.players.map(p=>{
+      const position = positions.find(pos=>pos.id===p.id)
+      if (position) {
+        p.x=position.x
+        p.y=position.y
+      }
+      p.color=team.color
+      return p;
+    })
+    saveTeam(team)
     deleteTeam(team)
   }
   
@@ -48,14 +57,14 @@ export default function TeamControls({ team }: ITeamControlsProps) {
   return (
     <div className="bg-white p-4 rounded-lg shadow-md">
       <div className="space-y-3">
-        <label htmlFor='name'>Nome do time:</label>
+        <label htmlFor={'name'+team.id}>Nome do time:</label>
         <input
           type="text"
           value={team.name}
           onChange={(e) => onTeamChange({ ...team, name: e.target.value })}
           className="w-full p-2 border rounded text-black"
           placeholder="Nome do time"
-          id='name'
+          id={'name'+team.id}
         />
 
         <select
@@ -64,7 +73,7 @@ export default function TeamControls({ team }: ITeamControlsProps) {
           className="w-full p-2 border rounded text-black"
         >
           {formations.map((formation) => (
-            <option key={formation.value} value={formation.value} className='text-black'>
+            <option key={formation.value+team.id} value={formation.value} className='text-black'>
               {formation.label}
             </option>
           ))}

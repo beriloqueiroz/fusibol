@@ -26,17 +26,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 45, y: 40 }, // Centroavante esquerdo
     { player: undefined, isBench: false, id: 11, x: 45, y: 60 },  // Centroavante direito
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '4-3-3': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 }, // Goleiro
@@ -51,17 +51,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 45, y: 20 }, // Ponta esquerda
     { player: undefined, isBench: false, id: 11, x: 45, y: 80 },  // Ponta direita
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '3-5-2': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 }, // Goleiro
@@ -76,17 +76,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 45, y: 40 }, // Centroavante esquerdo
     { player: undefined, isBench: false, id: 11, x: 45, y: 60 },  // Centroavante direito
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '5-3-2': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 },   // Goleiro
@@ -101,17 +101,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 45, y: 30 },  // Atacante esquerdo
     { player: undefined, isBench: false, id: 11, x: 45, y: 70 },   // Atacante direito
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '4-5-1': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 },
@@ -126,17 +126,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 35, y: 50 },
     { player: undefined, isBench: false, id: 11, x: 45, y: 50 },  // Único atacante
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '4-2-4': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 },
@@ -151,17 +151,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 40, y: 40 },
     { player: undefined, isBench: false, id: 11, x: 40, y: 60 },
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '3-4-3': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 },
@@ -176,17 +176,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 45, y: 80 },
     { player: undefined, isBench: false, id: 11, x: 45, y: 50 },
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '4-2-3-1': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 },
@@ -201,17 +201,17 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 40, y: 70 },  // Ponta direita
     { player: undefined, isBench: false, id: 11, x: 45, y: 50 },  // Centroavante
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ],
   '4-1-4-1': [
     { player: undefined, isBench: false, id: 1, x: 5, y: 50 },
@@ -226,32 +226,41 @@ const formations: Formation = {
     { player: undefined, isBench: false, id: 10, x: 35, y: 60 },
     { player: undefined, isBench: false, id: 11, x: 45, y: 50 },
 
-    { player: undefined, isBench: true, id: 12, x: 4, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 13, x: 9, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 14, x: 14, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 15, x: 19, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 16, x: 24, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 17, x: 29, y: 110 },  // Reserva
-    { player: undefined, isBench: true, id: 18, x: 4, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 19, x: 9, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 20, x: 14, y: 120 },  // Reserva
-    { player: undefined, isBench: true, id: 21, x: 19, y: 120 }, // Reserva
-    { player: undefined, isBench: true, id: 22, x: 24, y: 120 }  // Reserva
+    { player: undefined, isBench: true, id: 12, x: 5, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 13, x: 10, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 14, x: 15, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 15, x: 20, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 16, x: 25, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 17, x: 30, y: 110 },  // Reserva
+    { player: undefined, isBench: true, id: 18, x: 5, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 19, x: 10, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 20, x: 15, y: 120 },  // Reserva
+    { player: undefined, isBench: true, id: 21, x: 20, y: 120 }, // Reserva
+    { player: undefined, isBench: true, id: 22, x: 25, y: 120 }  // Reserva
   ]
 };
 
 
-export function getFormations(mirror = false) {
-  const formationsMirror: Formation = formations
-  if (mirror) {
-    Object.keys(formations).forEach(k => {
-      formationsMirror[k] = formations[k].map(f => {
-        f.x = (96 - f.x) * 10 + 86
-        f.y = f.y * 6
-        return f;
-      })
-    })
-    return formationsMirror;
-  }
+export function getFormations() {
+  // const formationsMirror: Formation = formations
+  // if (mirror) {
+  //   Object.keys(formations).forEach(k => {
+  //     formationsMirror[k] = formations[k].map(f => ({
+  //       ...f,
+  //       x: (1000 - f.x),
+  //       y: f.y
+  //     }))
+  //   });
+  //   return formationsMirror;
+  // }
+  // Object.keys(formations).forEach(k => {
+  //   formationsMirror[k] = formations[k].map(f => ({
+  //     ...f,
+  //     x: f.x * 10 - 50,
+  //     y: f.y * 6
+  //   }))
+  // });
   return formations;
 }
+
+export const defaultFormation = formations['4-4-2']
