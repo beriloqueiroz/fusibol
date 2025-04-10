@@ -246,7 +246,7 @@ export function getFormations(mirror = false) {
   if (mirror) {
     Object.keys(formations).forEach(k => {
       formationsMirror[k] = formations[k].map(f => {
-        f.x = (96 - f.x) * 10 + 90
+        f.x = (96 - f.x) * 10 + 86
         f.y = f.y * 6
         return f;
       })

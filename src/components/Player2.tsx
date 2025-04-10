@@ -27,7 +27,7 @@ export default function Player({player, fieldLimits}:IPlayerProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const draggableRef = useRef<HTMLButtonElement>(null);
+  const draggableRef = useRef<HTMLDivElement>(null);
   const rect = draggableRef.current?.parentElement?.getBoundingClientRect();
 
   const { scrollX, scrollY } = useWindowSize();
@@ -57,7 +57,9 @@ export default function Player({player, fieldLimits}:IPlayerProps) {
     setPosition({
       x,y
     });
-   
+    player.x = x;
+    player.y = y;
+    savePlayer(player.team, player)
     
   };
 
@@ -67,55 +69,44 @@ export default function Player({player, fieldLimits}:IPlayerProps) {
       savePlayer(player.team, player)
     }
   
-    const handleMouseUp = (e: React.MouseEvent) => {
+    const handleMouseUp = () => {
       setIsDragging(false);
 
       if (Date.now()-timeClick <= 90) {
         setIsModalOpen(true)
-        return;
       }
-
-      let x = e.clientX - offset.x;
-      let y = e.clientY - offset.y;
-      // Limita a posição do jogador dentro do campo
-      x = Math.max(fieldLimits.min.c, Math.min(x, fieldLimits.max.c)); // Limita entre 0% e 100%
-      y = Math.max(fieldLimits.min.l, Math.min(y, fieldLimits.max.l)); // Limita entre 0% e 100%
-
-      player.x = x;
-      player.y = y;
-      savePlayer(player.team, player)
     };
   
     useEffect(() => {
       if (isDragging) {
         window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
       } else {
         window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
       }
   
       return () => {
         window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
       };
 
     }, [isDragging, offset]); 
   
   return (
-    <>
-      <button className='absolute' ref={draggableRef} type='button' style={{left: `${position.x}px`, top: `${position.y}px`}} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>    
-        <span className="text-sm text-center">{player.name}</span>
-        <div className={`
-          w-10 h-10 rounded-full
-          flex items-center justify-center text-white
-          text-xs cursor-pointer select-none z-1 m-auto
-          ${isDragging ? 'cursor-grabbing shadow-lg' : 'cursor-grab'}
-        `} style={{ backgroundColor: `${player.color}`}}>
-          <span className="text-sm">{player.number}</span>
-        </div>
-        
-      </button>
+    <div className='absolute' ref={draggableRef}  style={{left: `${position.x}px`, top: `${position.y}px`}} onMouseDown={handleMouseDown}>    
+      <span className="text-sm text-center">{player.name}</span>
+      <div className={`
+        w-10 h-10 rounded-full
+        flex items-center justify-center text-white
+        text-xs cursor-pointer select-none z-1 m-auto
+        ${isDragging ? 'cursor-grabbing shadow-lg' : 'cursor-grab'}
+      `} style={{ backgroundColor: `${player.color}`}}>
+        <span className="text-sm">{player.number}</span>
+      </div>
       {isModalOpen && (
         <ModalPlayer player={player} close={()=>setIsModalOpen(false)} edit={editPlayer}/>
         )}
-    </>
+    </div>
   );
 }

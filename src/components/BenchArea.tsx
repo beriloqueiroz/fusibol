@@ -1,6 +1,6 @@
 'use client';
 import { IPlayer } from '@/types';
-import Player from './Player';
+import Player from './Player2';
 
 interface IBenchAreaProps {
   players: IPlayer[];

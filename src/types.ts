@@ -16,6 +16,7 @@ export interface ITeam {
   formation: string;
   players: IPlayer[];
   isHidden?: boolean;
+  color: string;
 }
 
 export interface IPosition {
