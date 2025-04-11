@@ -1,43 +1,21 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import Player from './Player';
 import { ITeam } from '@/types';
+import { useRef } from 'react';
+import Player from './Player';
 
 export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
   const ref = useRef<HTMLDivElement>(null)
-  const playerSize = 40;
 
-  const bigField = {
+  const sizeLimit = {
     min: {
       c: 0,
       l: 0
     },
     max: {
-      c: 1000,
-      l: 500
+      c: 1013,
+      l: 600
     },
   }
-
-  const [sizeLimit, setSizeLimit] = useState(bigField)
-
-  useEffect(() => {
-    if (ref.current?.parentElement) {
-      const updateBounds = () => {
-        const rect = ref.current?.getBoundingClientRect();
-        const rectParent = ref.current?.parentElement?.getBoundingClientRect();
-        
-        if (rect && rectParent){
-          setSizeLimit({...sizeLimit, max:{c:rect.width-playerSize, l:rectParent.height-rect.y}})
-        }
-
-      };
-  
-      updateBounds();
-      const resizeObserver = new ResizeObserver(updateBounds);
-      resizeObserver.observe(ref.current);
-      return () => resizeObserver.disconnect();
-    }
-  }, []);
 
   const factor = 3;
   const sizes = {
@@ -65,8 +43,9 @@ export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
   }
 
   return (
-    <div className='w-full bg-green-800 h-230 flex'>
-      <div ref={ref} style={{width:sizes.field.c*factor, height: sizes.field.l*factor}} className={`relative m-auto bg-green-700 border-4 border-white`}>
+    <div className='w-[1053px] bg-green-800 h-[920px] flex'>
+      <div ref={ref} style={{width:sizes.field.c*factor, height: sizes.field.l*factor}} 
+      className={`relative m-auto bg-green-700 border-1 border-white`}>
         {/* Linhas do campo */}
         <div style={{width:sizes.area.c*factor, height:sizes.area.l*factor}} className={`absolute border-2 border-white border-l-0 border-solid left-0 top-1/2 transform -translate-y-1/2`}></div>
         <div style={{width:sizes.littleArea.c*factor, height:sizes.littleArea.l*factor}} className={`absolute border-2 border-white border-l-0 border-solid left-0 top-1/2 transform -translate-y-1/2`}></div>

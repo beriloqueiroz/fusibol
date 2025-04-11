@@ -1,8 +1,13 @@
 'use client'
 import { getFormations } from "@/formations";
-import { IPlayer, ITeam } from "@/types";
+import { IPerson, IPlayer, ITeam } from "@/types";
 import { createContext, useContext, useState } from "react";
 
+type Refereer ={
+  b1:IPerson,
+  b2:IPerson,
+  j:IPerson
+} 
 type AppContextType = {
   teamA: ITeam
   teamB: ITeam
@@ -14,6 +19,8 @@ type AppContextType = {
   getTeam: (name:string)=>ITeam[]
   loadTeams: ()=>ITeam[]
   teams: ITeam[]
+  saveTempPerson: (player:IPerson, side:'A'|'B'|'B1'|'B2'|'J') =>void
+  referees: Refereer
 }
 
 const initialTeamA: ITeam = { 
@@ -28,7 +35,13 @@ const initialTeamA: ITeam = {
     number: f.number ?? '',
     team:'',
     x:f.x,
-    y:f.y}))
+    y:f.y})),
+  coach:{
+    color:'#000000',
+    name:'treinador A',
+    x:20,
+    y:0
+  }
 };
 const initialTeamB: ITeam = { 
   formation:'4-4-2', 
@@ -42,7 +55,13 @@ const initialTeamB: ITeam = {
     number: f.number ?? '',
     team:'',
     x:f.x,
-    y:f.y}))
+    y:f.y})),
+  coach:{
+    color:'#000000',
+    name:'treinador B',
+    x:80,
+    y:0
+  }
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -51,6 +70,26 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [teamA, setTeamA] = useState<ITeam>(initialTeamA)
   const [teamB, setTeamB] = useState<ITeam>(initialTeamB)
   const [teams, setTeams] = useState<ITeam[]>([])
+  const [referees, setReferees] = useState<Refereer>({
+    j:{
+      color:"yellow",
+      name: 'Arbitro',
+      x: 25,
+      y:0,
+    },
+    b1:{
+      color:"yellow",
+      name: 'Bandeira 1',
+      x: 20,
+      y:0,
+    },
+    b2:{
+      color:"yellow",
+      name: 'Bandeira 2',
+      x: 15,
+      y:0,
+    }
+  })
 
   function saveTempTeam(team:ITeam, size:'A' | 'B') {
     if (size==='A')
@@ -141,8 +180,40 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  function saveTempPerson(person:IPerson, side:'A'|'B'|'B1'|'B2'|'J') {
+    if (side == 'A') {
+      teamA.coach = person
+      saveTempTeam(teamA, side);
+    }
+    if (side == 'B') {
+      teamB.coach = person;
+      saveTempTeam(teamB, side);
+    }
+    if (side == 'J') {
+      teamB.coach = person;
+      setReferees({
+        ...referees,
+        j:person 
+      });
+    }
+    if (side == 'B1') {
+      teamB.coach = person;
+      setReferees({
+        ...referees,
+        b1:person 
+      });
+    }
+    if (side == 'B2') {
+      teamB.coach = person;
+      setReferees({
+        ...referees,
+        b2:person 
+      });
+    }
+  }
+
   return (
-    <AppContext.Provider value={{ teamA, teamB, saveTeam, saveTempPlayer, deleteTeam, getTeam, resetTempTeam, loadTeams, saveTempTeam , teams}}>
+    <AppContext.Provider value={{ teamA, teamB, saveTeam, saveTempPlayer, deleteTeam, getTeam, resetTempTeam, loadTeams, saveTempTeam , teams, saveTempPerson, referees}}>
       {children}
     </AppContext.Provider>
   )

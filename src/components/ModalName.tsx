@@ -1,21 +1,20 @@
 'use client'
-import { IPlayer } from "@/types";
+import { IPerson } from "@/types";
 import { useState } from "react";
 
 
 type ModalProps = {
-  player: IPlayer
+  person: IPerson
   close:()=>void
-  edit:({name, number}:{name:string, number: string|number})=>void
+  edit:({name}:{name:string})=>void
 }
 
 
-export function ModalPlayer({player, close, edit}:ModalProps) {
-  const [name, setName] = useState(player.name);
-  const [number, setNumber] = useState(player.number);
+export function ModalName({person, close, edit}:ModalProps) {
+  const [name, setName] = useState(person.name);
 
   const handleSave = () => {
-    edit({name,number});
+    edit({name});
     close();
   };
 
@@ -23,7 +22,7 @@ export function ModalPlayer({player, close, edit}:ModalProps) {
     <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-xl w-80">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold text-black">Editar Jogador</h3>
+          <h3 className="text-lg font-semibold text-black">Editar</h3>
           <button 
             onClick={close}
             className="text-gray-500 hover:text-gray-700 w-10 h-10 text-2xl cursor-pointer"
@@ -44,21 +43,6 @@ export function ModalPlayer({player, close, edit}:ModalProps) {
               onChange={(e) => setName(e.target.value)}
               placeholder="Nome do jogador"
               className="mt-1 block w-full border border-gray-300 text-black rounded-md shadow-sm p-2"
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="playerNumber" className="block text-sm font-medium text-gray-700">
-              Número:
-            </label>
-            <input
-              type="text"
-              id="playerNumber"
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
-              placeholder="Número da camisa"
-              maxLength={2}
-              className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm p-2"
             />
           </div>
           
