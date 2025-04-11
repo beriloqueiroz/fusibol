@@ -5,6 +5,7 @@ import { ITeam } from '@/types';
 
 export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
   const ref = useRef<HTMLDivElement>(null)
+  const playerSize = 40;
 
   const bigField = {
     min: {
@@ -18,8 +19,6 @@ export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
   }
 
   const [sizeLimit, setSizeLimit] = useState(bigField)
-
-  const playerSize = 40;
 
   useEffect(() => {
     if (ref.current?.parentElement) {

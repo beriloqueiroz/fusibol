@@ -264,7 +264,8 @@ export function getFormations() {
   Object.keys(formations).forEach(k => {
     formationsMirror[k] = formations[k].map(f => ({
       ...f,
-      number: getJerseyNumber(f.id)
+      number: getJerseyNumber(f.id),
+      x: f.x - 5,
     }))
   });
   return formationsMirror;
