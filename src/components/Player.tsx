@@ -14,20 +14,20 @@ interface IPlayerProps {
 
 function positionConversion(p:IPlayer, side:'A' | 'B'):{x:number, y:number}{
   if (side=='B') {
-    if (!p.isBench) return {x:1053-p.x*10, y:p.y*6}
+    if (p.isBench) return {x:1053-p.x*10, y:p.y*6}
     return {x:1053-p.x*10, y:p.y*6}
   }
-  if (!p.isBench) return {x:p.x*10-50, y:p.y*6}
+  if (p.isBench) return {x:p.x*10-50, y:p.y*6}
   return {x:p.x*10-50, y:p.y*6}
 } 
 
 function positionConversionBack(x:number, y: number, side: 'A' | 'B', isBench: boolean):{x:number, y:number}{
   if (side=='B') {
-    if (!isBench) return {x:(x)/10, y:y/6}
+    if (isBench) return {x:(x)/10, y:y/6}
     return {x:(x)/10, y:y/6}
   }
-  if (!isBench) return {x:(x+50)/10, y:y/6}
-  return {x:(x+50)/10, y:y/6}
+  if (isBench) return {x:(x+50)/10, y:y/6}
+  return {x:(x)/10, y:y/6}
 } 
 
 export interface IFieldLimits {
