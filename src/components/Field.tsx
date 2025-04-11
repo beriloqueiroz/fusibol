@@ -2,6 +2,7 @@
 import { ITeam } from '@/types';
 import { useRef } from 'react';
 import Player from './Player';
+import { FixedPerson } from './FixedPerson';
 
 export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
   const ref = useRef<HTMLDivElement>(null)
@@ -13,7 +14,7 @@ export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
     },
     max: {
       c: 1013,
-      l: 600
+      l: 718
     },
   }
 
@@ -78,6 +79,13 @@ export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
                 side='B'
               />
         ))}
+
+        <FixedPerson side='A' person={{...teamA.coach,x:400, y:700}}/>
+        <FixedPerson side='A' person={{...teamB.coach,x:600, y:700}}/>
+
+        <FixedPerson side='A' person={{color:"#c2a92e", name:'Bandeira 1',x:400, y:-80}}/>
+        <FixedPerson side='J' person={{color:"yellow", name:'Arbitro',x:500, y:-80}}/>
+        <FixedPerson side='A' person={{color:"#c2a92e", name:'Bandeira 2',x:600, y:-80}}/>
       </div>
     </div>
   );

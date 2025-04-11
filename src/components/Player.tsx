@@ -129,7 +129,7 @@ function positionConversionBack(x:number, y: number, side: 'A' | 'B', isBench: b
       <button className='absolute hover:opacity-45' ref={draggableRef} type='button' 
       style={{left: `${position.x}px`, top: `${position.y}px`}} 
       onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>    
-        <span className="absolute top-[-20] left-0 text-sm text-center">{player.name}</span>
+        <span className="absolute top-[-20] left-0 text-sm text-center w-max">{player.name}</span>
         <div className={`
           w-10 h-10 rounded-full
           flex items-center justify-center text-white
