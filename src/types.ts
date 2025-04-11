@@ -3,7 +3,7 @@ export interface IPlayer {
   id: number;
   x: number;
   y: number;
-  number: string;
+  number: string | number;
   name: string;
   color: string;
   team: string;
@@ -11,7 +11,6 @@ export interface IPlayer {
 }
 
 export interface ITeam {
-  id: 'A' | 'B';
   name: string;
   formation: string;
   players: IPlayer[];

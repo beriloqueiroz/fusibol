@@ -6,70 +6,114 @@ import { createContext, useContext, useState } from "react";
 type AppContextType = {
   teamA: ITeam
   teamB: ITeam
-  savePlayer: (player:IPlayer) =>void
-  saveTeam: (team:ITeam) => void
+  saveTempPlayer: (player:IPlayer,side: 'A' | 'B') =>void
+  saveTeam: (team:ITeam,side: 'A' | 'B') => void
+  saveTempTeam: (team:ITeam, side:'A' | 'B') => void
+  resetTempTeam: (side:'A' | 'B') => void
   deleteTeam: (team:ITeam) => void
+  getTeam: (name:string)=>ITeam[]
+  loadTeams: ()=>ITeam[]
+  teams: ITeam[]
 }
 
 const initialTeamA: ITeam = { 
   formation:'4-4-2', 
-  id: 'A', 
-  name:'A', 
+  name:'', 
   color:"#444444",
   players: getFormations()['4-4-2'].map(f=>({
     color:"#444444",
     id: f.id,
-    isBench:f.isBench,
+    isBench: f.isBench,
     name:'',
-    number:'',
-    team:'A',
+    number: f.number ?? '',
+    team:'',
     x:f.x,
     y:f.y}))
 };
-const initialTeamB: ITeam = { formation:'4-4-2', id: 'B', name:'B', color:"#FF0000",
-  players: getFormations(true)['4-4-2'].map(f=>({
+const initialTeamB: ITeam = { 
+  formation:'4-4-2', 
+  name:'', 
+  color:"#FF0000",
+  players: getFormations()['4-4-2'].map(f=>({
     color:"#FF0000",
     id: f.id,
-    isBench:f.isBench,
+    isBench: f.isBench,
     name:'',
-    number:'',
-    team:'B',
+    number: f.number ?? '',
+    team:'',
     x:f.x,
     y:f.y}))
-
 };
-
-function positionConversion(p:IPlayer):IPlayer {
-  if (!p.isBench) return {...p,x:p.x*20-100, y:p.y*6}
-  return {...p,x:p.x*10, y:p.y*6}
-} 
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [teamA, setTeamA] = useState<ITeam>(initialTeamA)
   const [teamB, setTeamB] = useState<ITeam>(initialTeamB)
+  const [teams, setTeams] = useState<ITeam[]>([])
 
-  function saveTeam(team:ITeam) {
-    if (team.id==='A')
+  function saveTempTeam(team:ITeam, size:'A' | 'B') {
+    if (size==='A')
+      setTeamA(team)
+    else setTeamB(team)
+  }
+
+  function resetTempTeam(size:'A' | 'B') {
+    if (size==='A')
+      setTeamA(initialTeamA)
+    else setTeamB(initialTeamB)
+  }
+
+  function saveTeam(team:ITeam, side: 'A' | 'B') {
+    if (side==='A')
       setTeamA(team)
     else setTeamB(team)
     localStorage.setItem(team.name, JSON.stringify(team))
   }
 
   function deleteTeam(team:ITeam) {
-    if (team.id==='A')
-      setTeamA(initialTeamA)
-    else setTeamB(initialTeamB)
     localStorage.removeItem(team.name)
+    loadTeams()
   }
 
-  function getTeam(name:string, id:string) :ITeam {
-    return JSON.parse(localStorage.getItem(name) ?? JSON.stringify(id=='A'?initialTeamA:initialTeamB))  as ITeam
-  }  
+  function getTeam(name:string) :ITeam[] {
+    if (name.length<2) return []
+    const matches = [];
+    if (!localStorage) return []
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.toLowerCase()?.startsWith(name)) {
+        const item = localStorage.getItem(key);
+        if (item == null) continue;
+        matches.push(JSON.parse(item));
+      }
+    }
+    return matches as ITeam[]
+  } 
+  
+  function loadTeams() :ITeam[] {
+    const matches = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key){
+        const item = localStorage.getItem(key);
+        if (item == null) continue;
+        try {
+        const itemObj:ITeam = JSON.parse(item);
+        if (!itemObj.name || itemObj.name.length<1) continue;
+        matches.push(itemObj);
+        } catch (e) {
+          console.error(e)
+          continue;
+        }        
+      }
+    }
+    setTeams(matches)
+    return matches
+  } 
 
-  function savePlayer(player:IPlayer) {
-    if (player.team == 'A') {
+  function saveTempPlayer(player:IPlayer, side:'A'|'B') {
+    if (side == 'A') {
       teamA.players = teamA.players.map(p=>{
         if (p.id===player.id) {
           p.x= player.x
@@ -79,9 +123,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         }
         return p;
       })
-      saveTeam(teamA);
+      if (teamA.name == '') teamA.name='A'
+      saveTempTeam(teamA, side);
     }
-    if (player.team == 'B') {
+    if (side == 'B') {
       teamB.players = teamB.players.map(p=>{
         if (p.id===player.id) {
           p.x= player.x
@@ -91,12 +136,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         }
         return p;
       })
-      saveTeam(teamB);
+      if (teamA.name == '') teamA.name='B'
+      saveTempTeam(teamB, side);
     }
   }
 
   return (
-    <AppContext.Provider value={{ teamA, teamB, saveTeam, savePlayer, deleteTeam }}>
+    <AppContext.Provider value={{ teamA, teamB, saveTeam, saveTempPlayer, deleteTeam, getTeam, resetTempTeam, loadTeams, saveTempTeam , teams}}>
       {children}
     </AppContext.Provider>
   )

@@ -1,7 +1,8 @@
 'use client';
 import { useAppContext } from '@/contexts/AppContext';
-import { defaultFormation, getFormations } from '@/formations';
+import { getFormations } from '@/formations';
 import { ITeam, TFormationKey } from '@/types';
+import { useEffect, useState } from 'react';
 
 
 const formations: { value: TFormationKey; label: string }[] = [
@@ -16,12 +17,13 @@ const formations: { value: TFormationKey; label: string }[] = [
   { value: "4-1-4-1", label: '4-1-4-1 (Controle do meio)'},
 ];
 
-export default function TeamControls({team}:{team:ITeam}) {
+export default function TeamControls({team, side}:{team:ITeam, side: 'A' | 'B'}) {
 
-  const {saveTeam, deleteTeam} = useAppContext();  
+  const {saveTeam, resetTempTeam, saveTempTeam, loadTeams} = useAppContext();
+  const [name, setName]=useState(team.name)  
+  const [showNameAlert, setShowNameAlert]=useState(false)  
 
-  function onTeamChange(team:ITeam) {
-    team.name=team.id
+  function onTeamChangeFormationColor(team:ITeam) {
     const positions = getFormations()[team.formation];
     team.players = team.players.map(p=>{
       const position = positions.find(pos=>pos.id===p.id)
@@ -32,48 +34,52 @@ export default function TeamControls({team}:{team:ITeam}) {
       p.color=team.color
       return p;
     })
-    saveTeam(team)
+    team.name=name
+    saveTempTeam(team, side)
   }
   
   function onReset() {
-    const positions = defaultFormation;
-    team.players = team.players.map(p=>{
-      const position = positions.find(pos=>pos.id===p.id)
-      if (position) {
-        p.x=position.x
-        p.y=position.y
-      }
-      p.color=team.color
-      return p;
-    })
-    saveTeam(team)
-    deleteTeam(team)
+    setName('')
+    resetTempTeam(side)
   }
   
   function onSave() {
-    saveTeam(team)
+    if (name.length<2) {
+      setShowNameAlert(true)
+      return;
+    }
+    team.name=name;
+    team.players.forEach(p=>{
+      p.team=name
+    })
+    saveTeam(team, side)
+    loadTeams()
   }
+
+  useEffect(()=>{
+    setName(team.name)
+  },[team])
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md">
       <div className="space-y-3">
-        <label htmlFor={'name'+team.id}>Nome do time:</label>
+        <label htmlFor={'name'+side}>Nome do time:</label>
         <input
           type="text"
-          value={team.name}
-          onChange={(e) => onTeamChange({ ...team, name: e.target.value })}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="w-full p-2 border rounded text-black"
           placeholder="Nome do time"
-          id={'name'+team.id}
+          id={'name'+side}
         />
 
         <select
           value={team.formation}
-          onChange={(e) => onTeamChange({ ...team, formation: e.target.value as TFormationKey })}
+          onChange={(e) => onTeamChangeFormationColor({ ...team, formation: e.target.value as TFormationKey })}
           className="w-full p-2 border rounded text-black"
         >
           {formations.map((formation) => (
-            <option key={formation.value+team.id} value={formation.value} className='text-black'>
+            <option key={formation.value+side} value={formation.value} className='text-black'>
               {formation.label}
             </option>
           ))}
@@ -82,7 +88,7 @@ export default function TeamControls({team}:{team:ITeam}) {
         <input
           type="color"
           value={team.color}
-          onChange={(e) => onTeamChange({ ...team, color: e.target.value })}
+          onChange={(e) => onTeamChangeFormationColor({ ...team, color: e.target.value })}
           className="w-full h-10 cursor-pointer"
         />
 
@@ -100,6 +106,22 @@ export default function TeamControls({team}:{team:ITeam}) {
           Resetar
         </button>
       </div>
+
+      {showNameAlert && 
+      (
+      <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50">
+        <div className="bg-white p-6 rounded-lg shadow-xl w-80 m-auto text-center">
+          <span className='text-center'>Digite primeiro um nome</span>
+          <button
+            onClick={()=>setShowNameAlert(false)}
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition my-2"
+          >
+            OK
+          </button>
+        </div>
+      </div>)
+      }
+
     </div>
   );
 }

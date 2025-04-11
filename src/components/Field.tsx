@@ -83,19 +83,21 @@ export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
       
         {teamA.players.map((player) => (
               <Player
-                key={`${teamA.id}-${player.id}`}
+                key={`${'A'}-${player.id}`}
                 player={player}
                 team={teamA}
                 fieldLimits={sizeLimit}
+                side='A'
               />
         ))}
 
         {teamB.players.map((player) => (
               <Player
-                key={`${teamB.id}-${player.id}`}
+                key={`${'B'}-${player.id}`}
                 player={player}
                 team={teamB}
                 fieldLimits={sizeLimit}
+                side='B'
               />
         ))}
       </div>
