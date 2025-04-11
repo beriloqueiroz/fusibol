@@ -29,7 +29,7 @@ export function Search({side}:{side: 'A' | 'B'}) {
       {teams.length>0 &&
       <ul className="p-1 border-1 rounded transition border-grey" id="li-teams">
         {teams.filter(t=>t.name.toLocaleLowerCase().startsWith(name.toLocaleLowerCase())).map(t=>(
-          <li className="p-1 w-full list-none cursor-pointer flex" key={t.id+t.name} value={t.name} 
+          <li className="p-1 w-full list-none cursor-pointer flex" key={t.name} value={t.name} 
           onClick={()=>onSave(t)}>
             <span className="p-2 m-1 w-full list-none cursor-pointer border-1 border-grey rounded transition" 
               style={{backgroundColor:`${t.color}`, color:`${invertColor(t.color)}`}}>{t.name} ({t.formation})
