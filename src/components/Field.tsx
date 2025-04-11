@@ -14,7 +14,8 @@ export default function Field({teamA, teamB}:{teamA:ITeam,teamB:ITeam}) {
     },
     max: {
       c: 1013,
-      l: 718
+      l: 600,
+      lr: 718, //limite area de reserva
     },
   }
 

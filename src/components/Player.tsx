@@ -19,7 +19,8 @@ export interface IFieldLimits {
   },
   max: {
     c: number,
-    l: number
+    l: number,
+    lr: number,
   },
 }
 
@@ -79,7 +80,7 @@ function positionConversionBack(x:number, y: number, side: 'A' | 'B', isBench: b
     let y = e.clientY - offset.y;
     // Limita a posição do jogador dentro do campo
     x = Math.max(fieldLimits.min.c, Math.min(x, fieldLimits.max.c)); // Limita entre 0% e 100%
-    y = Math.max(fieldLimits.min.l, Math.min(y, fieldLimits.max.l)); // Limita entre 0% e 100%
+    y = Math.max(fieldLimits.min.l, Math.min(y, fieldLimits.max.lr)); // Limita entre 0% e 100%
     setPosition({
       x,y
     });  
